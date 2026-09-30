@@ -1,0 +1,8 @@
+tools:
+  figma: {role: structured_design}
+  canva: {role: rapid_composition}
+  photoshop: {role: raster_editing}
+  illustrator: {role: vector_design}
+  image_generator: {role: generative_visuals}
+  html_svg_mermaid: {role: structured_visuals}
+  video_generator: {role: shot_generation}
