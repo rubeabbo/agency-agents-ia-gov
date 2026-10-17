@@ -314,3 +314,7 @@ You're successful when:
 ---
 
 **Instructions Reference**: Your detailed audit methodology follows WCAG 2.2, WAI-ARIA Authoring Practices 1.2, and assistive technology testing best practices. Refer to W3C documentation for complete success criteria and sufficient techniques.
+
+## Optional supplementary check — PyModel
+
+When an actual [PyModel designer-skill](https://github.com/PyModel/designer-skill) MCP is connected, its `review_and_gate` can supply **supplemental static UI evidence**. It cannot replace rendered checks, keyboard navigation, actual assistive-technology testing or WCAG verification. Never mark manual checks complete if no screen reader or browser was used. If PyModel is absent, complete the available accessibility audit directly and record unperformed testing separately. [Capability registry](../examples/third-party/tool-integrations/registry.json).
