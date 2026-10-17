@@ -45,7 +45,7 @@ bash scripts/install.sh --tool codex --agent voltagent-data-analyst,voltagent-fu
 # Quitar --dry-run para instalar, una vez verificada la selección.
 ```
 
-La aplicación nativa Agency Agents admite un catálogo de **clon local seleccionado por el usuario** además de su biblioteca integrada. Se debe seleccionar la copia local de `rubeabbo/agency-agents-ia-gov` como origen y actualizarla. **Los nuevos archivos en GitHub no modifican automáticamente una instalación local, la biblioteca integrada de la aplicación ni el entorno Codex.**
+La aplicación nativa Agency Agents admite un catálogo de **clon local seleccionado por el usuario** además de su biblioteca integrada. En la aplicación: **Configuración → Catálogo → Usa tu propio clon → Elija carpeta…**, y elegí la carpeta local del fork actualizado. Si no está descargado en tu PC, clonalo primero desde GitHub; seleccionar una URL web no reemplaza la selección de una carpeta local. Se debe seleccionar la copia local de `rubeabbo/agency-agents-ia-gov` como origen y actualizarla. **Los nuevos archivos en GitHub no modifican automáticamente una instalación local, la biblioteca integrada de la aplicación ni el entorno Codex.**
 
 La disponibilidad para ser invocados depende de la configuración real del cliente Codex; instalar no garantiza delegación autónoma. Mantener un enrutador/instrucción de uso y una validación independiente es parte de IA-Gov.
 
