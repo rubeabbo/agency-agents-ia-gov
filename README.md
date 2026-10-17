@@ -109,6 +109,8 @@ See the [Multi-Tool Integrations](#-multi-tool-integrations) section below for f
 ---
 
 ## 🎨 The Agency Roster
+> **Community additions in this fork:** [7 externally sourced / community-derived specialists](examples/third-party/README.md) for web design, UX, full-stack applications, accessibility and interactive dashboards. Original providers and MIT licensing are credited; these are **not** original IA-Gov agents.
+
 
 ### 💻 Engineering Division
 
