@@ -71,6 +71,39 @@ Gate independiente de entregable/alcance: **PASS**, sin hallazgos pendientes.
 El revisor comprobó también los cuatro TOML nuevos con `tomllib`; el integrador
 contrastó íntegramente sus cuerpos con los perfiles fuente tras la conversión aislada.
 
-El gate remoto debe comprobar el árbol publicado y que main alcanza el commit
-verificado. Su evidencia se registra después de publicar, sin presentar un commit
-local como si ya existiera en GitHub.
+## Gate remoto
+
+**VERIFIED:** [commit de incorporación b5f8559](https://github.com/rubeabbo/agency-agents-ia-gov/commit/b5f85593476d57470caa705c870393bd2450e8f5)
+alcanzable desde `main`. Se descargó el commit desde GitHub y compararon byte a byte
+los **51 archivos cambiados** contra el índice local verificado; también coincide
+el conjunto de rutas cambiadas. Lectura adicional mediante el conector GitHub de
+`divisions.json` y `examples/third-party/political-intelligence/README.md` en el SHA
+publicado confirmó etiquetas y contenido.
+Actualización fast-forward con SHA esperado; no se reescribió historia.
+
+Comprobaciones GitHub Actions del commit de incorporación:
+
+- [Integración política: PASS](https://github.com/rubeabbo/agency-agents-ia-gov/actions/runs/39073964496).
+- [Divisiones: PASS](https://github.com/rubeabbo/agency-agents-ia-gov/actions/runs/39073964483).
+- [Hermes config rewrite: PASS](https://github.com/rubeabbo/agency-agents-ia-gov/actions/runs/39073964567).
+- [Runbooks: PASS](https://github.com/rubeabbo/agency-agents-ia-gov/actions/runs/39073964568).
+- [Control general de herramientas: FAILURE](https://github.com/rubeabbo/agency-agents-ia-gov/actions/runs/39073964520).
+  La validación del registro de 17 herramientas y del plugin Hermes pasó; el paso
+  `test-convert-frontmatter.sh` falló con `Permission denied` al invocar directamente
+  `scripts/convert.sh`. Git muestra modo `100644` para convert.sh y lint-agents.sh
+  tanto en el baseline `da809642...` como en el commit incorporado. El permiso
+  ausente es previo; no se afirma haber ejecutado el CI del baseline (no había runs
+  disponibles para ese SHA). No se modifican tests generales ni se oculta el fallo.
+- [Test Installer](https://github.com/rubeabbo/agency-agents-ia-gov/actions/runs/39073964454):
+  Ubuntu finalizó con **54 passed, 11 failed, 1 xfail**; macOS seguía en ejecución
+  al registrar esta evidencia. El primer fallo compara equipos contra una extracción
+  de JSON que también recoge `label`, `icon`, `color`; el parser del instalador
+  correctamente sólo recoge objetos de división. Ese test, el instalador y el
+  formato anidado de `divisions.json` ya existían en el baseline. También hay fallos
+  de instalación por investigar; no se atribuyen todos sin reproducción. La selección
+  acotada de los cuatro agentes sí pasó y sus conversiones son válidas.
+
+Estado global: **PASS WITH NON-BLOCKING ISSUES** para esta incorporación, con fallos
+y estado pendiente del CI general documentados. No equivale a afirmar que
+todo el CI del repositorio esté verde. La invocación documentada usa `bash` y la
+selección de los cuatro agentes se verificó; el nuevo workflow político pasó en Linux.
