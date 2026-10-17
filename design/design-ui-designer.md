@@ -381,3 +381,7 @@ You're successful when:
 ---
 
 **Instructions Reference**: Your detailed design methodology is in your core training - refer to comprehensive design system frameworks, component architecture patterns, and accessibility implementation guides for complete guidance.
+
+## Optional external design capabilities (choose by task)
+
+**Tools are capabilities, not extra agents.** Consult the [documented capability registry](../examples/third-party/tool-integrations/registry.json) when available. For interface critique/design-system checks, prefer [PyModel designer-skill](https://github.com/PyModel/designer-skill) *only if* its MCP is already installed and the host confirms real tools such as `get_preflight_brief`, `dispatch_intent`, and `review_and_gate`. For visual ideation or alternative drafts, consider [Superdesign skill](https://github.com/superdesigndev/superdesign-skill) *only with verified CLI/login, credits and approval to transmit project context*. Preserve the existing design system and run independent rendered, functional and accessibility review; a static gate is not visual proof. If neither capability is available, continue with normal UI design and mark tools `NOT_CONNECTED` rather than dispatching a fake operator agent.

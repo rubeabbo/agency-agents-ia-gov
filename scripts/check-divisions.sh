@@ -22,14 +22,16 @@ cd "$(dirname "$0")/.."
 
 JSON="divisions.json"
 
-# Top-level directories that are NOT divisions. Everything else at the repo
+# Top-level directories that are NOT divisions. agents/ holds standalone skills, not a visible division.
+# All other non-hidden top-level directories with tracked files are treated as divisions.
+# Everything else at the repo
 # root that is a directory is treated as a division (so a new division dir is
 # caught even if nobody remembered to register it).
 # integrations/ is convert.sh's OUTPUT tree (per-tool conversions written back
 # into the repo), not a source-agent category. strategy/ holds playbooks and
 # runbooks (no agent frontmatter), not agents. Neither is a division — they must
 # never be scanned as source-agent categories.
-NON_DIVISION_DIRS=(examples scripts integrations strategy)
+NON_DIVISION_DIRS=(examples scripts integrations strategy agents)
 
 errors=0
 fail() { echo "ERROR $*"; errors=$((errors + 1)); }
@@ -43,6 +45,14 @@ canonical() {
   awk '/"divisions"[[:space:]]*:[[:space:]]*\{/{f=1; next} f' "$JSON" \
     | grep -oE '"[a-z0-9-]+"[[:space:]]*:[[:space:]]*\{' \
     | sed -E 's/"([a-z0-9-]+)".*/\1/' | sort -u
+}
+
+# IA-Gov's original proprietary agent profiles have a distinct metadata contract
+# (many omit color). Keep IA-Gov visible in divisions.json and Agency Agents,
+# but do not force its original files through external-agency converters/lint.
+# Other divisions, including the four capability groupings, are installable.
+tooling_divisions() {
+  canonical | grep -vx 'ia-gov' || true
 }
 
 # Actual division directories: top-level dirs that contain at least one
@@ -85,8 +95,20 @@ compare() {
 [[ -f "$JSON" ]] || { echo "ERROR $JSON not found at repo root"; exit 1; }
 
 compare "the agent directories on disk" "$(actual_dirs)"
-compare "scripts/convert.sh AGENT_DIRS" "$(agent_dirs_array scripts/convert.sh)"
-compare "scripts/lint-agents.sh AGENT_DIRS" "$(agent_dirs_array scripts/lint-agents.sh)"
+
+# Converter/linter intentionally exclude the custom IA-Gov division. Unlike
+# non-division source folders, ia-gov IS a visible catalog division; the check
+# below validates only the standard installable division set.
+compare_tooling() {
+  local label="$1" candidate="$2" expected missing extra
+  expected="$(tooling_divisions)"
+  missing="$(comm -23 <(echo "$expected") <(echo "$candidate"))"
+  extra="$(comm -13 <(echo "$expected") <(echo "$candidate"))"
+  [[ -z "$missing" ]] || fail "$label is missing installable division(s): $(echo "$missing" | tr '\n' ' ')"
+  [[ -z "$extra" ]] || fail "$label contains non-installable division(s): $(echo "$extra" | tr '\n' ' ')"
+}
+compare_tooling "scripts/convert.sh AGENT_DIRS" "$(agent_dirs_array scripts/convert.sh)"
+compare_tooling "scripts/lint-agents.sh AGENT_DIRS" "$(agent_dirs_array scripts/lint-agents.sh)"
 
 # Workflow path filters: every canonical division must appear as `<div>/` in
 # the lint workflow, or new divisions silently skip CI.
@@ -94,7 +116,7 @@ WF=".github/workflows/lint-agents.yml"
 if [[ -f "$WF" ]]; then
   while IFS= read -r div; do
     grep -qE "\b${div}/" "$WF" || fail "$WF has no path filter for division '$div'"
-  done < <(canonical)
+  done < <(tooling_divisions)
   # The workflow's inner git diff pathspecs must select every tracked agent.
   # Git's ordinary `division/**/*.md` pattern misses files directly in division/.
   changed_paths=()
@@ -107,7 +129,7 @@ if [[ -f "$WF" ]]; then
   else
     expected_agents="$(while IFS= read -r div; do
       git ls-files -- "$div/*.md"
-    done < <(canonical) | sort -u)"
+    done < <(tooling_divisions) | sort -u)"
     selected_agents="$(git ls-files -- "${changed_paths[@]}" | sort -u)"
     missed_agents="$(comm -23 <(printf '%s\n' "$expected_agents") <(printf '%s\n' "$selected_agents"))"
     if [[ -n "$missed_agents" ]]; then

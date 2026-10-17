@@ -223,3 +223,7 @@ You're successful when:
 ---
 
 **Instructions Reference**: Your detailed frontend methodology is in your core training - refer to comprehensive component patterns, performance optimization techniques, and accessibility guidelines for complete guidance.
+
+## Optional visual-code editing (Onlook)
+
+Use the existing Frontend Developer role to build and edit applications. [Onlook](https://github.com/onlook-dev/onlook) is **an editor, not an agent**: evaluate it for authorized visual editing of supported Next.js/Tailwind code *only if* a usable hosted or self-hosted instance is actually available. The newer hosted product is in early access and the OSS editor may require additional services; do not imply a Codex/Onlook API connection, browser control or free usage without verifying it. Preserve edits in Git and validate the resulting code, responsiveness and functionality. Otherwise work locally and describe Onlook as `NOT_CONNECTED`. [Capability registry](../examples/third-party/tool-integrations/registry.json).

@@ -1,63 +1,91 @@
-# Agentes comunitarios externos — catálogo Agency Agents
+# Agencia de especialistas — taxonomía por capacidad
 
-Estos perfiles se incorporan al **fork de Agency Agents** para ampliar su catálogo. **No se atribuyen a la autoría original de IA-Gov** ni reemplazan a los agentes propios (Arquitecto, Cerbero, Graffitero y otros). El proveedor original y la licencia se documentan en cada perfil.
+Los agentes de [Agency Agents](../../README.md) están ordenados por **qué saben hacer**, no por su proveedor. En este fork, los siete especialistas incorporados se agrupan en cuatro divisiones funcionales visibles en la aplicación. Las divisiones generales del catálogo original permanecen; esta es una **capa especializada complementaria**, no una sustitución masiva de cientos de agentes originales.
 
-## Agentes incorporados
+**Tres dimensiones independientes:**
 
-| Especialista (nombre en Agency Agents) | Ruta en el fork | Procedencia | Distinción |
-| --- | --- | --- | --- |
-| VoltAgent UI Designer | [design/design-voltagent-ui-designer.md](../../design/design-voltagent-ui-designer.md) | [UI Designer de VoltAgent](https://github.com/VoltAgent/awesome-claude-code-subagents/blob/main/categories/01-core-development/ui-designer.md) | Versión externa, útil como alternativa o segunda revisión de diseño |
-| VoltAgent UX Researcher | [design/design-voltagent-ux-researcher.md](../../design/design-voltagent-ux-researcher.md) | [UX Researcher de VoltAgent](https://github.com/VoltAgent/awesome-claude-code-subagents/blob/main/categories/08-business-product/ux-researcher.md) | Alternativa para validación de UX, entrevistas y evidencia |
-| VoltAgent Design Bridge | [design/design-voltagent-design-bridge.md](../../design/design-voltagent-design-bridge.md) | [Design Bridge de VoltAgent](https://github.com/VoltAgent/awesome-claude-code-subagents/blob/main/categories/01-core-development/design-bridge.md) | Traduce un diseño o DESIGN.md verificable a instrucciones de implementación |
-| VoltAgent Data Analyst | [engineering/engineering-voltagent-data-analyst.md](../../engineering/engineering-voltagent-data-analyst.md) | [Data Analyst de VoltAgent](https://github.com/VoltAgent/awesome-claude-code-subagents/blob/main/categories/05-data-ai/data-analyst.md) | Calidad de datos, contratos de indicadores, análisis y reportes |
-| VoltAgent Fullstack Developer | [engineering/engineering-voltagent-fullstack-developer.md](../../engineering/engineering-voltagent-fullstack-developer.md) | [Fullstack Developer de VoltAgent](https://github.com/VoltAgent/awesome-claude-code-subagents/blob/main/categories/01-core-development/fullstack-developer.md) | Aplicaciones de punta a punta: DB, API, frontend, autenticación y tests |
-| VoltAgent Accessibility Tester | [testing/testing-voltagent-accessibility-tester.md](../../testing/testing-voltagent-accessibility-tester.md) | [Accessibility Tester de VoltAgent](https://github.com/VoltAgent/awesome-claude-code-subagents/blob/main/categories/04-quality-security/accessibility-tester.md) | Pruebas y evidencia de accesibilidad complementarias al auditor existente |
-| Community Dashboard Engineer | [engineering/engineering-community-dashboard-engineer.md](../../engineering/engineering-community-dashboard-engineer.md) | Adaptación comunitaria inspirada en [Data Analyst de VoltAgent](https://github.com/VoltAgent/awesome-claude-code-subagents/blob/main/categories/05-data-ai/data-analyst.md) | Implementación especializada de dashboards; **no** es un agente oficial de VoltAgent |
+- **Especialidad:** diseño y experiencia digital, ingeniería de aplicaciones, inteligencia de datos/BI y calidad/validación.
+- **Capacidades opcionales:** PyModel, Superdesign, Onlook, Streamlit, Superset y Metabase. Son tools, skills, MCP o aplicaciones, **no seis agentes extra**.
+- **Procedencia:** AgentLand, VoltAgent, adaptación comunitaria, o IA-Gov original. Se documenta en el perfil y no determina la división funcional.
 
-**Licencia de la fuente externa:** MIT, copyright (c) 2025 VoltAgent. Se conserva el texto completo de la [licencia original](LICENSE-VoltAgent.md), junto con los vínculos y créditos de cada archivo. Los perfiles importados llevan modificaciones de compatibilidad con Agency Agents, pero conservan el playbook de origen.
+### Diseño y Experiencia Digital
 
-## Cómo se conectan sin redundancias
+| Agente real | Perfil del catálogo | Procedencia |
+| --- | --- | --- |
+| **VoltAgent UI Designer** | [digital-experience/digital-experience-voltagent-ui-designer.md](../../digital-experience/digital-experience-voltagent-ui-designer.md) | [VoltAgent / referencia original](https://github.com/VoltAgent/awesome-claude-code-subagents/blob/main/categories/01-core-development/ui-designer.md) |
+| **VoltAgent UX Researcher** | [digital-experience/digital-experience-voltagent-ux-researcher.md](../../digital-experience/digital-experience-voltagent-ux-researcher.md) | [VoltAgent / referencia original](https://github.com/VoltAgent/awesome-claude-code-subagents/blob/main/categories/08-business-product/ux-researcher.md) |
+| **VoltAgent Design Bridge** | [digital-experience/digital-experience-voltagent-design-bridge.md](../../digital-experience/digital-experience-voltagent-design-bridge.md) | [VoltAgent / referencia original](https://github.com/VoltAgent/awesome-claude-code-subagents/blob/main/categories/01-core-development/design-bridge.md) |
 
-La biblioteca Agency Agents ya incluye `UI Designer`, `UX Researcher`, `Data Visualization Engineer`, `Accessibility Auditor` y `Frontend Developer`. Los perfiles nuevos identificados con VoltAgent se preservan por su procedencia y pueden utilizarse como **segundo criterio independiente**, no para que dos agentes editen el mismo documento en paralelo.
+### Ingeniería de Aplicaciones
 
-Un flujo adecuado para un dashboard es:
+| Agente real | Perfil del catálogo | Procedencia |
+| --- | --- | --- |
+| **VoltAgent Fullstack Developer** | [application-development/application-development-voltagent-fullstack-developer.md](../../application-development/application-development-voltagent-fullstack-developer.md) | [VoltAgent / referencia original](https://github.com/VoltAgent/awesome-claude-code-subagents/blob/main/categories/01-core-development/fullstack-developer.md) |
 
-**Data Analyst (métricas y fuentes) → Community Dashboard Engineer (aplicación) → Data Visualization Engineer / UI Designer (revisión visual) → Accessibility Tester (prueba independiente) → QA/orquestador (entrega).**
+### Inteligencia de Datos y BI
 
-Las aplicaciones, MCP y skills no deben confundirse con perfiles de agente:
+| Agente real | Perfil del catálogo | Procedencia |
+| --- | --- | --- |
+| **VoltAgent Data Analyst** | [data-intelligence/data-intelligence-voltagent-data-analyst.md](../../data-intelligence/data-intelligence-voltagent-data-analyst.md) | [VoltAgent / referencia original](https://github.com/VoltAgent/awesome-claude-code-subagents/blob/main/categories/05-data-ai/data-analyst.md) |
+| **Dashboard Engineer** | [data-intelligence/data-intelligence-dashboard-engineer.md](../../data-intelligence/data-intelligence-dashboard-engineer.md) | [VoltAgent / referencia original](https://github.com/VoltAgent/awesome-claude-code-subagents/blob/main/categories/05-data-ai/data-analyst.md) (adaptación comunitaria, no agente oficial) |
 
-- [PyModel designer-skill](https://github.com/PyModel/designer-skill) es una skill + MCP independiente. Su núcleo indica uso sin API key, pero exige instalación separada y herramientas verificadas.
-- [Superdesign skill](https://github.com/superdesigndev/superdesign-skill) utiliza skill + CLI/servicio; verificar cuentas y límites gratuitos antes de adoptarlo.
-- [Onlook](https://github.com/onlook-dev/onlook) es un entorno visual de desarrollo web.
-- [Streamlit](https://github.com/streamlit/streamlit), [Apache Superset](https://github.com/apache/superset) y [Metabase](https://github.com/metabase/metabase) son herramientas de aplicaciones/BI. La disponibilidad de código abierto no garantiza alojamiento gratuito.
+### Calidad y Validación Digital
 
-## Herramientas externas y adaptadores (segunda capa)
+| Agente real | Perfil del catálogo | Procedencia |
+| --- | --- | --- |
+| **VoltAgent Accessibility Tester** | [digital-quality/digital-quality-voltagent-accessibility-tester.md](../../digital-quality/digital-quality-voltagent-accessibility-tester.md) | [VoltAgent / referencia original](https://github.com/VoltAgent/awesome-claude-code-subagents/blob/main/categories/04-quality-security/accessibility-tester.md) |
 
-Se añadió un catálogo separado de **seis herramientas** y sus **seis operadores comunitarios** que sí pueden figurar como perfiles de agente en la interfaz, sin atribuirles identidad del proveedor: PyModel, Superdesign, Onlook, Streamlit, Apache Superset y Metabase.
+## Capacidades externas (sin perfiles artificiales)
 
-- [Ver el registro de herramientas y estado de conexión (JSON)](tool-integrations/registry.json).
-- [Ver las instalaciones concretas para Windows/Codex, reglas de selección y límites gratuitos](tool-integrations/README.md).
+| Especialista que realiza el trabajo | Herramientas seleccionables, sólo si están realmente disponibles |
+| --- | --- |
+| UI Designer (original y VoltAgent) | [PyModel designer-skill](https://github.com/PyModel/designer-skill) para preflight y revisión estática, [Superdesign](https://github.com/superdesigndev/superdesign-skill) para explorar visuales con cuenta/créditos autorizados |
+| Frontend Developer / Fullstack Developer | [Onlook](https://github.com/onlook-dev/onlook) si existe un editor accesible y el proyecto Next.js/Tailwind corresponde; fallback desarrollo local |
+| Dashboard Engineer | [Streamlit](https://github.com/streamlit/streamlit) para apps Python ligeras; [Metabase](https://github.com/metabase/metabase) para BI de consultas sencillo; [Superset](https://github.com/apache/superset) para BI avanzado y su infraestructura |
+| Accessibility Auditor | PyModel opcional como **evidencia estática adicional**, no sustituto de pruebas reales con tecnologías asistivas |
 
-**Importante:** colocar un operador `.md` en el catálogo de Agency Agents habilita sus instrucciones y su disponibilidad para ser instalado como agente, pero **no** instala el MCP de PyModel, la skill/CLI de Superdesign, el editor Onlook, Streamlit, Superset ni Metabase. El cliente debe comprobar conexión, credenciales y permisos reales. Las marcas no publicaron estos seis perfiles como agentes oficiales.
+La [guía técnica Windows/Codex](tool-integrations/README.md) y [el registro de capacidades JSON](tool-integrations/registry.json) mantienen requisitos, licencias, instalación, límites gratuitos, fallbacks, riesgos y rutas de enrutamiento. Ningún programa queda instalado por añadir este catálogo.
 
-## Uso en Codex y Agency Agents
+## Arquitectura de cooperación
 
-Estos archivos se registraron en las divisiones existentes (`design/`, `engineering/`, `testing/`) que el instalador reconoce por `divisions.json`. **No hace falta agregar una división IA-Gov ni cambiar las personalidades originales.**
-
-Para Codex desde una copia local actualizada de este fork, en **Git Bash para Windows**:
-
-```bash
-git pull
-bash scripts/convert.sh --tool codex
-bash scripts/install.sh --tool codex --list agents
-bash scripts/install.sh --tool codex --agent voltagent-data-analyst,voltagent-fullstack-developer,voltagent-ui-designer,voltagent-ux-researcher,voltagent-design-bridge,voltagent-accessibility-tester,community-dashboard-engineer --dry-run
-# Quitar --dry-run para instalar, una vez verificada la selección.
+```mermaid
+flowchart TD
+  A[Encargo + criterios de aceptación] --> B[Especialidad requerida]
+  B --> D[Diseño y Experiencia Digital]
+  B --> E[Ingeniería de Aplicaciones]
+  B --> F[Inteligencia de Datos y BI]
+  D --> T{Herramienta disponible y autorizada?}
+  E --> T
+  F --> T
+  T -->|Sí| X[Skill, MCP o aplicación apropiada]
+  T -->|No| Y[Trabajo local / fallback explícito]
+  X --> Q[Calidad y Validación Digital]
+  Y --> Q
+  Q --> R[Entrega editable + evidencia + revisión humana]
 ```
 
-La aplicación nativa Agency Agents admite un catálogo de **clon local seleccionado por el usuario** además de su biblioteca integrada. En la aplicación: **Configuración → Catálogo → Usa tu propio clon → Elija carpeta…**, y elegí la carpeta local del fork actualizado. Si no está descargado en tu PC, clonalo primero desde GitHub; seleccionar una URL web no reemplaza la selección de una carpeta local. Se debe seleccionar la copia local de `rubeabbo/agency-agents-ia-gov` como origen y actualizarla. **Los nuevos archivos en GitHub no modifican automáticamente una instalación local, la biblioteca integrada de la aplicación ni el entorno Codex.**
+No se inventan resultados de aplicaciones que no se han ejecutado. Los análisis y prototipos conservan su profundidad y las capacidades de edición existentes.
 
-La disponibilidad para ser invocados depende de la configuración real del cliente Codex; instalar no garantiza delegación autónoma. Mantener un enrutador/instrucción de uso y una validación independiente es parte de IA-Gov.
+## Cómo verlo en Agency Agents
 
-## Regla de procedencia y privacidad
+1. Actualizar el clon local de `rubeabbo/agency-agents-ia-gov` con `git pull` (o sincronizar GitHub Desktop).
+2. Dentro de Agency Agents, ir a **Configuración → Catálogo → Usa tu propio clon → Elija carpeta…** y seleccionar esa copia local.
+3. Actualizar catálogo y buscar **Diseño y Experiencia Digital**, **Ingeniería de Aplicaciones**, **Inteligencia de Datos y BI** o **Calidad y Validación Digital**. Los siete perfiles nuevos aparecen en esas divisiones.
+4. Si habías instalado alguno de los seis antiguos `Community ... Tool Operator`, **desinstalarlo de Codex** desde Agency Agents: eliminarlo del repositorio no borra automáticamente una instalación local gestionada o ajena. También puede persistir el slug anterior `community-dashboard-engineer` después del cambio de nombre a `dashboard-engineer`.
 
-El directorio `ia-gov/` permanece reservado para los agentes propios. No alterar nombres/autores originales ni afirmar que un perfil externo fue diseñado originalmente por IA-Gov. Cada agente puede acceder solo a la información mínima necesaria; no trasladar datos confidenciales a servicios externos sin autorización.
+Para Codex (Git Bash desde el fork actualizado, después de aprobar la reorganización):
+
+```bash
+bash scripts/check-divisions.sh
+bash scripts/convert.sh --tool codex
+bash scripts/install.sh --tool codex --list agents
+bash scripts/install.sh --tool codex --agent dashboard-engineer,voltagent-ui-designer,voltagent-data-analyst --dry-run
+# Quitar --dry-run sólo después de revisar resultados e instalaciones anteriores.
+```
+
+## Autoría y licencias
+
+- Las adaptaciones de VoltAgent conservan sus URL de origen y la [licencia MIT íntegra, © 2025 VoltAgent](LICENSE-VoltAgent.md).
+- **Dashboard Engineer** es una adaptación comunitaria inspirada por VoltAgent; no es un agente oficial del proveedor ni autoría original de IA-Gov.
+- `ia-gov/` permanece reservado a Arquitecto, Cerbero, Graffitero y otros agentes propios; no se modificaron sus perfiles ni se atribuyeron externos a IA-Gov.
+- `divisions.json` registra las cuatro áreas como divisiones operativas; las variantes del catálogo original siguen en sus carpetas base.

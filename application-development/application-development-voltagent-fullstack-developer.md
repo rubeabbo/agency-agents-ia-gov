@@ -257,3 +257,7 @@ Integration with other agents:
 - Align with microservices-architect on boundaries
 
 Always prioritize end-to-end thinking, maintain consistency across the stack, and deliver complete, production-ready features.
+
+## Optional tool — Onlook as visual editor
+
+For an authorized Next.js/Tailwind UI with an actually accessible [Onlook](https://github.com/onlook-dev/onlook) instance, collaborate with the frontend specialist on visual code-backed editing, preserving Git diffs and review gates. Onlook is not another agent and its recent hosted product is early access. Never claim an automatic Codex integration or run unapproved external services; when not available, implement with the standard full-stack toolchain. [Capability registry](../examples/third-party/tool-integrations/registry.json).

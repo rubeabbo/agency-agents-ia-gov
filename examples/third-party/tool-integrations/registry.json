@@ -1,12 +1,12 @@
 {
-  "schema_version": "1.0.0",
-  "catalog_name": "Agency Agents community tool integrations",
+  "schema_version": "2.0.0",
+  "catalog_name": "Agency Agents external capability registry",
   "checked_on": "2026-10-17",
-  "purpose": "Map specialized community agent adapters to separately installed third-party skills, MCP servers and applications.",
+  "purpose": "List optional skills, MCP and applications usable by existing specialist agents: skills/tools do not become agent personas.",
   "not_agency_app_tools_json": true,
-  "identity_policy": "No listed vendor software/skill is an original IA-Gov agent; the community operator adapters are not official vendor agents.",
-  "installation_policy": "No installation, API account creation, purchase, hosted data transfer or external service access is implied by GitHub registration.",
-  "connection_state_note": "This records supported procedures, not live connectivity. A running Codex or Agency Agents client must verify each tool and permissions.",
+  "identity_policy": "The seven imported/community-derived specialists retain source attribution; external software and skills are provider-owned capabilities, not IA-Gov agents.",
+  "installation_policy": "Listing tools or agent personas in GitHub does not install software, configure the MCP server, log into services, or verify local connections.",
+  "connection_state_note": "Each specialist MUST check actual host capability/authorization before claiming tool use; fallback to local skillful work if unavailable.",
   "routing": {
     "ui_design_audit": [
       "pymodel-designer-skill"
@@ -42,13 +42,17 @@
         "UX/design-system references",
         "static review gate"
       ],
-      "agent": "design/design-community-pymodel-tool-operator.md",
       "runtime": "Node.js 22+; npx; supported MCP host",
       "integration": "install upstream skill and configure local designer-skill MCP; no API key for core",
       "access": "keyless_local_core; optional third-party retrieval separate",
       "free_first": true,
       "activation_state": "documented_only_not_verified_on_user_machine",
-      "fallback": "Agency UI Designer + Accessibility Auditor"
+      "fallback": "Agency UI Designer + Accessibility Auditor",
+      "consumers": [
+        "design/design-ui-designer.md",
+        "digital-experience/digital-experience-voltagent-ui-designer.md",
+        "testing/testing-accessibility-auditor.md"
+      ]
     },
     {
       "id": "superdesign-skill",
@@ -62,13 +66,16 @@
         "iterative visual drafts",
         "presentations/graphics"
       ],
-      "agent": "design/design-community-superdesign-tool-operator.md",
       "runtime": "Node.js npm/npx; separate @superdesign/cli; account login",
       "integration": "install skill and CLI, then interactive superdesign login; call only with user consent",
       "access": "account_required; free quota/credit limits unverified",
       "free_first": "conditional",
       "activation_state": "documented_only_not_verified_on_user_machine",
-      "fallback": "Agency UI Designer and local frontend code"
+      "fallback": "Agency UI Designer and local frontend code",
+      "consumers": [
+        "design/design-ui-designer.md",
+        "digital-experience/digital-experience-voltagent-ui-designer.md"
+      ]
     },
     {
       "id": "onlook-visual-editor",
@@ -81,13 +88,16 @@
         "UI iteration",
         "source-based design review"
       ],
-      "agent": "design/design-community-onlook-tool-operator.md",
       "runtime": "current hosted product early access; OSS self-host requires substantial stack",
       "integration": "select hosted or authorized self-hosted editor; no automatic Codex/Agency App API integration assumed",
       "access": "hosted_waitlist; selfhost_deps; optional AI keys and related costs",
       "free_first": "conditional",
       "activation_state": "documented_only_not_verified_on_user_machine",
-      "fallback": "local frontend developer and UI Designer"
+      "fallback": "local frontend developer and UI Designer",
+      "consumers": [
+        "engineering/engineering-frontend-developer.md",
+        "application-development/application-development-voltagent-fullstack-developer.md"
+      ]
     },
     {
       "id": "streamlit",
@@ -100,13 +110,15 @@
         "interactive forms and charts",
         "prototype data apps"
       ],
-      "agent": "engineering/engineering-community-streamlit-tool-operator.md",
       "runtime": "Python in isolated venv",
       "integration": "install Streamlit as project dependency, build and run Python app locally",
       "access": "free_local_software; optional Community Cloud with hosting/data constraints",
       "free_first": true,
       "activation_state": "documented_only_not_verified_on_user_machine",
-      "fallback": "use existing Python tools or another authorized BI stack"
+      "fallback": "use existing Python tools or another authorized BI stack",
+      "consumers": [
+        "data-intelligence/data-intelligence-dashboard-engineer.md"
+      ]
     },
     {
       "id": "apache-superset",
@@ -120,13 +132,15 @@
         "interactive charts",
         "REST API"
       ],
-      "agent": "engineering/engineering-community-superset-tool-operator.md",
       "runtime": "Linux/containerized stack; Docker + Compose for local sandbox; not officially supported native Windows",
       "integration": "connect authorized running instance and data sources; no auto-deploy",
       "access": "free_OSS; infrastructure/ops and data-source costs possible",
       "free_first": "conditional",
       "activation_state": "documented_only_not_verified_on_user_machine",
-      "fallback": "Streamlit for smaller projects; existing approved BI systems"
+      "fallback": "Streamlit for smaller projects; existing approved BI systems",
+      "consumers": [
+        "data-intelligence/data-intelligence-dashboard-engineer.md"
+      ]
     },
     {
       "id": "metabase",
@@ -140,13 +154,16 @@
         "interactive dashboards",
         "API"
       ],
-      "agent": "engineering/engineering-community-metabase-tool-operator.md",
       "runtime": "Docker or Java self-host; existing DB connection",
       "integration": "connect authorized running Metabase OSS instance; permissions and API authentication as required",
       "access": "free_selfhost_OSS; commercial features, cloud and operational costs separate",
       "free_first": "conditional",
       "activation_state": "documented_only_not_verified_on_user_machine",
-      "fallback": "Streamlit or existing approved BI"
+      "fallback": "Streamlit or existing approved BI",
+      "consumers": [
+        "data-intelligence/data-intelligence-dashboard-engineer.md"
+      ]
     }
-  ]
+  ],
+  "routing_policy": "Route work by specialty (design, applications, data/BI, QA), choose optional tools only when authorized, available and advantageous."
 }
