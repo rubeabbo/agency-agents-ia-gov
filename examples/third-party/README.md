@@ -31,6 +31,15 @@ Las aplicaciones, MCP y skills no deben confundirse con perfiles de agente:
 - [Onlook](https://github.com/onlook-dev/onlook) es un entorno visual de desarrollo web.
 - [Streamlit](https://github.com/streamlit/streamlit), [Apache Superset](https://github.com/apache/superset) y [Metabase](https://github.com/metabase/metabase) son herramientas de aplicaciones/BI. La disponibilidad de código abierto no garantiza alojamiento gratuito.
 
+## Herramientas externas y adaptadores (segunda capa)
+
+Se añadió un catálogo separado de **seis herramientas** y sus **seis operadores comunitarios** que sí pueden figurar como perfiles de agente en la interfaz, sin atribuirles identidad del proveedor: PyModel, Superdesign, Onlook, Streamlit, Apache Superset y Metabase.
+
+- [Ver el registro de herramientas y estado de conexión (JSON)](tool-integrations/registry.json).
+- [Ver las instalaciones concretas para Windows/Codex, reglas de selección y límites gratuitos](tool-integrations/README.md).
+
+**Importante:** colocar un operador `.md` en el catálogo de Agency Agents habilita sus instrucciones y su disponibilidad para ser instalado como agente, pero **no** instala el MCP de PyModel, la skill/CLI de Superdesign, el editor Onlook, Streamlit, Superset ni Metabase. El cliente debe comprobar conexión, credenciales y permisos reales. Las marcas no publicaron estos seis perfiles como agentes oficiales.
+
 ## Uso en Codex y Agency Agents
 
 Estos archivos se registraron en las divisiones existentes (`design/`, `engineering/`, `testing/`) que el instalador reconoce por `divisions.json`. **No hace falta agregar una división IA-Gov ni cambiar las personalidades originales.**
