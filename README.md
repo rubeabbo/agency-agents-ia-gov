@@ -109,6 +109,8 @@ See the [Multi-Tool Integrations](#-multi-tool-integrations) section below for f
 ---
 
 ## 🎨 The Agency Roster
+
+> **IA-Gov: política, economía y conflictos:** [catálogo operativo, seis skills con origen y runtimes/conectores](examples/third-party/political-intelligence/README.md), organizado en **1. Economy and Political Agents**, **2. Research Political News and Report**, **3. Geopolitical Trenders**, **4. Conflict Analyst**. Perfiles, software ejecutable y MCP se distinguen expresamente.
 > **Capability-based specialist areas in this fork:** [7 specialist agents, grouped into 4 functional divisions](examples/third-party/README.md): Diseño y Experiencia Digital, Ingeniería de Aplicaciones, Inteligencia de Datos y BI, and Calidad y Validación Digital. Six [optional tool capabilities](examples/third-party/tool-integrations/README.md) (PyModel, Superdesign, Onlook, Streamlit, Superset, Metabase) belong to functional agents, **not** fictitious tool-operator personas. Existing Agency Agents and original IA-Gov profiles remain distinct; origins and licensing stay credited.
 
 

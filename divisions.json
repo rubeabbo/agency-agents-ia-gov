@@ -115,6 +115,26 @@
       "label": "IA-Gov",
       "icon": "Network",
       "color": "#F97316"
+    },
+    "economy-political": {
+      "label": "1. Economy and Political Agents",
+      "icon": "Landmark",
+      "color": "#2563EB"
+    },
+    "political-news": {
+      "label": "2. Research Political News and Report",
+      "icon": "Newspaper",
+      "color": "#0F766E"
+    },
+    "geopolitical-trends": {
+      "label": "3. Geopolitical Trenders",
+      "icon": "Globe",
+      "color": "#7C3AED"
+    },
+    "conflict-analysis": {
+      "label": "4. Conflict Analyst",
+      "icon": "ShieldCheck",
+      "color": "#D97706"
     }
   }
 }

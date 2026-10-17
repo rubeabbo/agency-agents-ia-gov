@@ -1,0 +1,300 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-10-17",
+  "classification_basis": "Juicio IA-Gov por utilidad y costo/dependencias; no benchmark ni garantía de disponibilidad.",
+  "categories": [
+    {
+      "id": "economy-political",
+      "label": "1. Economy and Political Agents",
+      "profile": "economy-political/economy-political-analyst.md",
+      "agent_name": "Political Economy Analyst",
+      "classification": "CORE",
+      "type": "agent-profile"
+    },
+    {
+      "id": "political-news",
+      "label": "2. Research Political News and Report",
+      "profile": "political-news/political-news-analyst.md",
+      "agent_name": "Political News Analyst",
+      "classification": "CORE",
+      "type": "agent-profile"
+    },
+    {
+      "id": "geopolitical-trends",
+      "label": "3. Geopolitical Trenders",
+      "profile": "geopolitical-trends/geopolitical-trends-analyst.md",
+      "agent_name": "Geopolitical Trend Analyst",
+      "classification": "ÚTIL",
+      "type": "agent-profile"
+    },
+    {
+      "id": "conflict-analysis",
+      "label": "4. Conflict Analyst",
+      "profile": "conflict-analysis/conflict-analysis-analyst.md",
+      "agent_name": "Conflict Evidence Analyst",
+      "classification": "ÚTIL",
+      "type": "agent-profile"
+    }
+  ],
+  "projects": [
+    {
+      "id": "riksdagsmonitor",
+      "repository": "Hack23/riksdagsmonitor",
+      "url": "https://github.com/Hack23/riksdagsmonitor",
+      "commit": "7a67743488e2628ba339eb95785a80f40285b89f",
+      "license": "Apache-2.0",
+      "classification": "ÚTIL",
+      "type": "skills",
+      "license_path": "licenses/riksdagsmonitor.txt",
+      "license_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "incorporation": "portable-skills-with-verbatim-references",
+      "evidence": "https://github.com/Hack23/riksdagsmonitor/tree/7a67743488e2628ba339eb95785a80f40285b89f",
+      "categories": [
+        "1. Economy and Political Agents",
+        "2. Research Political News and Report",
+        "3. Geopolitical Trenders",
+        "4. Conflict Analyst"
+      ],
+      "free_dependencies_and_limits": "Lectura local de skills; modelo/harness según cuenta. No instala newsroom ni Copilot.",
+      "usage": "README.md"
+    },
+    {
+      "id": "world-intel-mcp",
+      "repository": "marc-shade/world-intel-mcp",
+      "url": "https://github.com/marc-shade/world-intel-mcp",
+      "commit": "eb2f4fee199cde9f5b247016a12ccd05839bea9d",
+      "license": "MIT",
+      "classification": "CORE",
+      "type": "mcp",
+      "license_path": "licenses/world-intel-mcp.txt",
+      "license_sha256": "5488b1a2435bc101bafc26a4afd8014896c7d15a96c7344f3e06b7b414aa7d64",
+      "incorporation": "pinned-external-bootstrap",
+      "evidence": "https://github.com/marc-shade/world-intel-mcp/tree/eb2f4fee199cde9f5b247016a12ccd05839bea9d",
+      "categories": [
+        "1. Economy and Political Agents",
+        "2. Research Political News and Report",
+        "3. Geopolitical Trenders",
+        "4. Conflict Analyst"
+      ],
+      "free_dependencies_and_limits": "Python3.11+, MCP/httpx; APIs públicas parciales. FRED/EIA keys, ACLED cuenta elegible; cuotas no garantizadas.",
+      "usage": "README.md"
+    },
+    {
+      "id": "TrendRadar",
+      "repository": "sansan0/TrendRadar",
+      "url": "https://github.com/sansan0/TrendRadar",
+      "commit": "657094ed6a527441b917e16d9497fc8435ed091d",
+      "license": "GPL-3.0",
+      "classification": "ÚTIL",
+      "type": "application+mcp",
+      "license_path": "licenses/TrendRadar.txt",
+      "license_sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "incorporation": "pinned-external-bootstrap",
+      "evidence": "https://github.com/sansan0/TrendRadar/tree/657094ed6a527441b917e16d9497fc8435ed091d",
+      "categories": [
+        "2. Research Political News and Report",
+        "3. Geopolitical Trenders"
+      ],
+      "free_dependencies_and_limits": "Python3.12+, SQLite/RSS; IA y notificaciones desactivadas en perfil local. Proveedores de feeds pueden limitar.",
+      "usage": "README.md"
+    },
+    {
+      "id": "Political_Agent",
+      "repository": "ayushi-006/Political_Agent",
+      "url": "https://github.com/ayushi-006/Political_Agent",
+      "commit": "58f437ff395a4fb5bfa16c2af2b286a8a85ab67d",
+      "license": "Apache-2.0",
+      "classification": "EXPERIMENTAL",
+      "type": "executable-agent",
+      "license_path": "licenses/Political_Agent.txt",
+      "license_sha256": "50e6751797c50dedd75ef1b8a0d9e42f5f8472e9fbce91f34718e9f97b0c780a",
+      "incorporation": "vendored-patched-runtime",
+      "evidence": "https://github.com/ayushi-006/Political_Agent/tree/58f437ff395a4fb5bfa16c2af2b286a8a85ab67d",
+      "categories": [
+        "2. Research Political News and Report"
+      ],
+      "free_dependencies_and_limits": "Python3.10-3.13, CrewAI, Ollama/Mistral, SERPER_API_KEY. Serper tiene cuota condicionada, no gratis ilimitado.",
+      "usage": "README.md"
+    },
+    {
+      "id": "digital-war-room",
+      "repository": "lina767/digital-war-room",
+      "url": "https://github.com/lina767/digital-war-room",
+      "commit": "be1d4c120c323ca270fd61bf3c0d993a7cfe8a2b",
+      "license": "MIT",
+      "classification": "EXPERIMENTAL",
+      "type": "multi-agent-application",
+      "license_path": "licenses/digital-war-room.txt",
+      "license_sha256": "884c86a7ecb4621a1c3ee1b1693ece90806bbbac4228566ca47bbb8c590d4919",
+      "incorporation": "pinned-external-bootstrap",
+      "evidence": "https://github.com/lina767/digital-war-room/tree/be1d4c120c323ca270fd61bf3c0d993a7cfe8a2b",
+      "categories": [
+        "4. Conflict Analyst"
+      ],
+      "free_dependencies_and_limits": "Python3.11+, FastAPI, Node18+ opcional; síntesis completa usa Anthropic/OpenAI y no es ruta integral gratuita.",
+      "usage": "README.md"
+    }
+  ],
+  "skills": [
+    {
+      "id": "polintel-economic-policy-analysis",
+      "classification": "CORE",
+      "type": "skill",
+      "category": "1. Economy and Political Agents",
+      "path": "agents/political-intelligence/skills/polintel-economic-policy-analysis/SKILL.md",
+      "reference": "agents/political-intelligence/skills/polintel-economic-policy-analysis/references/upstream-SKILL.md",
+      "project": "riksdagsmonitor",
+      "upstream_path": ".github/skills/economic-policy-analysis/SKILL.md",
+      "original_sha256": "e1abaebe0e71f19df4b9b2f2f68474570122d7188cafc2a4e367a429f7d91546",
+      "changes": "Entrada portable nueva; original conservado íntegro como referencia."
+    },
+    {
+      "id": "polintel-political-science-analysis",
+      "classification": "ÚTIL",
+      "type": "skill",
+      "category": "1. Economy and Political Agents",
+      "path": "agents/political-intelligence/skills/polintel-political-science-analysis/SKILL.md",
+      "reference": "agents/political-intelligence/skills/polintel-political-science-analysis/references/upstream-SKILL.md",
+      "project": "riksdagsmonitor",
+      "upstream_path": ".github/skills/political-science-analysis/SKILL.md",
+      "original_sha256": "619400da4eb1ac236cd06fec13125027c6709bceecbfc30d732589b00b83f4d9",
+      "changes": "Entrada portable nueva; original conservado íntegro como referencia."
+    },
+    {
+      "id": "polintel-investigative-journalism",
+      "classification": "CORE",
+      "type": "skill",
+      "category": "2. Research Political News and Report",
+      "path": "agents/political-intelligence/skills/polintel-investigative-journalism/SKILL.md",
+      "reference": "agents/political-intelligence/skills/polintel-investigative-journalism/references/upstream-SKILL.md",
+      "project": "riksdagsmonitor",
+      "upstream_path": ".github/skills/investigative-journalism/SKILL.md",
+      "original_sha256": "53cef2e6b0af1094c64c4dfc97d09601e19a0838dcf4c1d05d9c969463c2eafc",
+      "changes": "Entrada portable nueva; original conservado íntegro como referencia."
+    },
+    {
+      "id": "polintel-comparative-politics-reporting",
+      "classification": "ÚTIL",
+      "type": "skill",
+      "category": "2. Research Political News and Report",
+      "path": "agents/political-intelligence/skills/polintel-comparative-politics-reporting/SKILL.md",
+      "reference": "agents/political-intelligence/skills/polintel-comparative-politics-reporting/references/upstream-SKILL.md",
+      "project": "riksdagsmonitor",
+      "upstream_path": ".github/skills/comparative-politics-reporting/SKILL.md",
+      "original_sha256": "65385dc9088f879646a27f76d23735d4d024e7e0423d58e77f1e1807179f7294",
+      "changes": "Entrada portable nueva; original conservado íntegro como referencia."
+    },
+    {
+      "id": "polintel-global-government-analysis",
+      "classification": "ÚTIL",
+      "type": "skill",
+      "category": "3. Geopolitical Trenders",
+      "path": "agents/political-intelligence/skills/polintel-global-government-analysis/SKILL.md",
+      "reference": "agents/political-intelligence/skills/polintel-global-government-analysis/references/upstream-SKILL.md",
+      "project": "riksdagsmonitor",
+      "upstream_path": ".github/skills/global-government-analysis/SKILL.md",
+      "original_sha256": "54e20f9a598400054766145cff63e7d1674b4299296ac48f79923372ac95e0d2",
+      "changes": "Entrada portable nueva; original conservado íntegro como referencia."
+    },
+    {
+      "id": "polintel-intelligence-analysis-techniques",
+      "classification": "CORE",
+      "type": "skill",
+      "category": "4. Conflict Analyst",
+      "path": "agents/political-intelligence/skills/polintel-intelligence-analysis-techniques/SKILL.md",
+      "reference": "agents/political-intelligence/skills/polintel-intelligence-analysis-techniques/references/upstream-SKILL.md",
+      "project": "riksdagsmonitor",
+      "upstream_path": ".github/skills/intelligence-analysis-techniques/SKILL.md",
+      "original_sha256": "cc03d23320469cce5b135592258aed5acc13b79688cf738e7ab44b0e4f08e05c",
+      "changes": "Entrada portable nueva; original conservado íntegro como referencia."
+    }
+  ],
+  "imported_files": [
+    {
+      "path": "examples/third-party/political-intelligence/runtime/political-agent/LICENSE",
+      "project": "Political_Agent",
+      "upstream_path": "LICENSE",
+      "original_sha256": "50e6751797c50dedd75ef1b8a0d9e42f5f8472e9fbce91f34718e9f97b0c780a",
+      "distributed_sha256": "50e6751797c50dedd75ef1b8a0d9e42f5f8472e9fbce91f34718e9f97b0c780a",
+      "changes": []
+    },
+    {
+      "path": "examples/third-party/political-intelligence/runtime/political-agent/README.md",
+      "project": "Political_Agent",
+      "upstream_path": "README.md",
+      "original_sha256": "dbf9094f3ac7ea877a0b579d824b89fbef7aab6132ef5e98d108952aafb0b299",
+      "distributed_sha256": "dbf9094f3ac7ea877a0b579d824b89fbef7aab6132ef5e98d108952aafb0b299",
+      "changes": []
+    },
+    {
+      "path": "examples/third-party/political-intelligence/runtime/political-agent/pyproject.toml",
+      "project": "Political_Agent",
+      "upstream_path": "pyproject.toml",
+      "original_sha256": "56a490d4aa545494330644587bb531cb91479e89a63f1aec9eb22e2e3a5df56e",
+      "distributed_sha256": "f890e9c58c6c5139cf19b0376f0c0d91c8a710bf711490f820c2759974be7a88",
+      "changes": [
+        "Retira train/replay/test: entrypoints upstream sin implementación; aviso de cambio en archivo."
+      ]
+    },
+    {
+      "path": "examples/third-party/political-intelligence/runtime/political-agent/src/ai_latest_development/__init__.py",
+      "project": "Political_Agent",
+      "upstream_path": "src/ai_latest_development/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "distributed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "changes": []
+    },
+    {
+      "path": "examples/third-party/political-intelligence/runtime/political-agent/src/ai_latest_development/config/agents.yaml",
+      "project": "Political_Agent",
+      "upstream_path": "src/ai_latest_development/config/agents.yaml",
+      "original_sha256": "4bd18a399b6134fd5f7a9c3684ef68099dfe692bea777257d5620773c52ce9e8",
+      "distributed_sha256": "4bd18a399b6134fd5f7a9c3684ef68099dfe692bea777257d5620773c52ce9e8",
+      "changes": []
+    },
+    {
+      "path": "examples/third-party/political-intelligence/runtime/political-agent/src/ai_latest_development/config/tasks.yaml",
+      "project": "Political_Agent",
+      "upstream_path": "src/ai_latest_development/config/tasks.yaml",
+      "original_sha256": "0694d6c8dc69b168180296ab4a16c528f9d62c57d09e4edaffea35fa5bea6b34",
+      "distributed_sha256": "0694d6c8dc69b168180296ab4a16c528f9d62c57d09e4edaffea35fa5bea6b34",
+      "changes": []
+    },
+    {
+      "path": "examples/third-party/political-intelligence/runtime/political-agent/src/ai_latest_development/crew.py",
+      "project": "Political_Agent",
+      "upstream_path": "src/ai_latest_development/crew.py",
+      "original_sha256": "3fa8906ea152ae980ff4a420ebe8797d0caca91f99ea4a7afad9cd8b30deb201",
+      "distributed_sha256": "9a3566d47e7569b8d3c6ccf68aaf531980d427af3a8d0c422489e2ffd3054efc",
+      "changes": [
+        "Usa SERPER_API_KEY, nombre real de CrewAI SerperDevTool; preserva el entorno y falla claramente si falta."
+      ]
+    },
+    {
+      "path": "examples/third-party/political-intelligence/runtime/political-agent/src/ai_latest_development/main.py",
+      "project": "Political_Agent",
+      "upstream_path": "src/ai_latest_development/main.py",
+      "original_sha256": "28cb944444e957c19d867ab3a553797a3b65ff33bbd0daa11fb8a790b78cfc28",
+      "distributed_sha256": "74891e39e77b792bc8d50e8bcde2de17ee7382df4171e866e210ec946f3d32e4",
+      "changes": [
+        "Import relativo, tema configurable y elimina ejecución al importar."
+      ]
+    },
+    {
+      "path": "examples/third-party/political-intelligence/runtime/political-agent/src/ai_latest_development/tools/__init__.py",
+      "project": "Political_Agent",
+      "upstream_path": "src/ai_latest_development/tools/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "distributed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "changes": []
+    },
+    {
+      "path": "examples/third-party/political-intelligence/runtime/political-agent/src/ai_latest_development/tools/custom_tool.py",
+      "project": "Political_Agent",
+      "upstream_path": "src/ai_latest_development/tools/custom_tool.py",
+      "original_sha256": "d7c5b7086613ba1bdd28eca38493868bf2ce7c9898a736c513e784d9904dcc8e",
+      "distributed_sha256": "d7c5b7086613ba1bdd28eca38493868bf2ce7c9898a736c513e784d9904dcc8e",
+      "changes": []
+    }
+  ]
+}

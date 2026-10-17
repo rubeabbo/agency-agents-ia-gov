@@ -16,6 +16,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Keep in sync with AGENT_DIRS in scripts/convert.sh
 AGENT_DIRS=(
+  economy-political political-news geopolitical-trends conflict-analysis
   academic
   application-development
   data-intelligence

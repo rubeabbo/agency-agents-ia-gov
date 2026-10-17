@@ -3,3 +3,9 @@
 *.yml text eol=lf
 *.yaml text eol=lf
 *.sh text eol=lf
+
+# Preserve audited upstream bytes and their SHA-256 manifests on every OS.
+agents/political-intelligence/** -text
+examples/third-party/political-intelligence/** -text
+scripts/political_intelligence.py text eol=lf
+scripts/test_political_intelligence.py text eol=lf

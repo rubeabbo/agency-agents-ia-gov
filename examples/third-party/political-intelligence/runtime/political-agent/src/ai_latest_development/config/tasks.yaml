@@ -1,0 +1,43 @@
+retrive_news_task:
+  description: >
+    Collect the latest {topic} for the date {date}. Search through trusted sources
+    and summarize the most important updates, announcements, debates, and events.
+  expected_output: >
+    A list of 5 bullet points highlighting the most relevant findings and
+    trends about {topic} as of {date}.
+  agent: retrive_news
+  # inputs:
+  #   search_query: "latest {topic} news {date}"
+
+
+website_scrapper_task:
+  description: >
+    Visit news websites and extract clean, relevant content connected to {topic}.
+    Remove ads, navigation text, and unrelated material. Organize the extracted
+    information into structured notes for further analysis.
+  expected_output: >
+    A fully developed report in markdown format, structured with headings and
+    sections, where each main point from the research is expanded into a clear,
+    detailed analysis. Formatted as markdown without '```'.
+  agent: website_scrapper
+
+
+news_writer_task:
+  description: >
+    Using the research and extracted content, write a complete news article on
+    {topic}. The article should be factually accurate, engaging, and structured
+    like a professional news report. and write article to a file 
+  expected_output: >
+    A polished news article about {topic} ready for publishing, written in a
+    neutral and professional journalistic style.
+  agent: news_writer
+
+
+file_write_task:
+  description: >
+    Save the final written news article about {topic} into a file. Ensure proper
+    formatting, include the date {date}, and organize the output for easy retrieval.
+  expected_output: >
+    A well-formatted text or markdown file saved locally with the article titled
+    "{topic} - {date}" containing the final report.
+  agent: file_writer
