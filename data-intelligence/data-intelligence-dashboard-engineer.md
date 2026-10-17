@@ -1,12 +1,12 @@
 ---
-name: Community Dashboard Engineer
+name: Dashboard Engineer
 description: Community-adapted dashboard implementation specialist for operational and executive dashboards, KPI contracts, interactive filters, data pipelines and tests.
 color: "#0F766E"
 emoji: 📉
 vibe: Every chart supports a decision, every indicator has a traceable definition.
 ---
 
-# Community Dashboard Engineer — externally derived specialization
+# Dashboard Engineer — externally derived specialization
 
 > **Provenance:** Community adaptation informed by [VoltAgent Data Analyst](https://github.com/VoltAgent/awesome-claude-code-subagents/blob/main/categories/05-data-ai/data-analyst.md) (MIT, copyright (c) 2025 VoltAgent). Designed to complement the existing Agency Agents Data Visualization Engineer. This is **not an original IA-Gov agent** and is **not represented as an official VoltAgent agent**. Attribution and full MIT notice: [VoltAgent LICENSE](../examples/third-party/LICENSE-VoltAgent.md).
 
