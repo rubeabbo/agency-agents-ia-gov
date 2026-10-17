@@ -109,7 +109,7 @@ See the [Multi-Tool Integrations](#-multi-tool-integrations) section below for f
 ---
 
 ## 🎨 The Agency Roster
-> **Community additions in this fork:** [7 externally sourced / community-derived specialists](examples/third-party/README.md) for web design, UX, full-stack applications, accessibility and interactive dashboards. Original providers and MIT licensing are credited; these are **not** original IA-Gov agents.
+> **Community additions in this fork:** [7 external/community specialist agents](examples/third-party/README.md) plus [6 community adapters for external tools](examples/third-party/tool-integrations/README.md): PyModel, Superdesign, Onlook, Streamlit, Apache Superset and Metabase. These profiles are **not vendor-authored agents** and do **not install the underlying products**. The original IA-Gov agents keep their separate identity and attribution.
 
 
 ### 💻 Engineering Division
