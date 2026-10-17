@@ -109,7 +109,7 @@ See the [Multi-Tool Integrations](#-multi-tool-integrations) section below for f
 ---
 
 ## 🎨 The Agency Roster
-> **Community additions in this fork:** [7 external/community specialist agents](examples/third-party/README.md) plus [6 community adapters for external tools](examples/third-party/tool-integrations/README.md): PyModel, Superdesign, Onlook, Streamlit, Apache Superset and Metabase. These profiles are **not vendor-authored agents** and do **not install the underlying products**. The original IA-Gov agents keep their separate identity and attribution.
+> **Capability-based specialist areas in this fork:** [7 specialist agents, grouped into 4 functional divisions](examples/third-party/README.md): Diseño y Experiencia Digital, Ingeniería de Aplicaciones, Inteligencia de Datos y BI, and Calidad y Validación Digital. Six [optional tool capabilities](examples/third-party/tool-integrations/README.md) (PyModel, Superdesign, Onlook, Streamlit, Superset, Metabase) belong to functional agents, **not** fictitious tool-operator personas. Existing Agency Agents and original IA-Gov profiles remain distinct; origins and licensing stay credited.
 
 
 ### 💻 Engineering Division

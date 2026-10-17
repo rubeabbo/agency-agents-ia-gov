@@ -1,37 +1,30 @@
-# Integraciones externas para los agentes de Agency Agents
+# Capacidades externas para agentes reales — guía Windows / Codex
 
-Esta carpeta complementa el catálogo de especialistas de `rubeabbo/agency-agents-ia-gov` con **seis capacidades externas**: PyModel, Superdesign, Onlook, Streamlit, Apache Superset y Metabase. Se documentan en [registry.json](registry.json) y disponen de *community tool operators* instalables como perfiles de agente.
+PyModel, Superdesign, Onlook, Streamlit, Superset y Metabase son **herramientas, skills, MCP o aplicaciones externas**. Se utilizan desde los especialistas competentes; **no** son nuevos agentes de Agency Agents ni agentes propios de IA-Gov. En esta reorganización desaparecieron los seis perfiles llamados `Community ... Tool Operator` del catálogo, pero se conservaron los requisitos operativos, decisiones de uso, licencias y fallbacks en [registry.json](registry.json) y esta guía.
 
-> **Separación de identidades:** los operadores son adaptadores comunitarios del fork, **no agentes oficiales de las marcas y no agentes originales de IA-Gov**. Los proveedores mantienen sus respectivas autorías, licencias y condiciones de sus productos.
->
-> **Qué se ha hecho en GitHub:** añadir perfiles Markdown y un registro de enrutamiento. **Qué NO se ha hecho:** instalar software en Windows/Codex, iniciar sesión, activar MCP, conectar una base de datos ni verificar funcionamiento local. Agency Agents **no ejecuta** el software del proveedor por el mero hecho de ver su adaptador en el catálogo.
+## Arquitectura por especialidad
 
-## Matriz de capacidades y compatibilidad
+| Área de capacidad | Responsable real | Herramientas opcionales |
+| --- | --- | --- |
+| Diseño y Experiencia Digital | [UI Designer](../../../design/design-ui-designer.md), [VoltAgent UI Designer](../../../digital-experience/digital-experience-voltagent-ui-designer.md) | PyModel (MCP/skill), Superdesign (skill/CLI) |
+| Ingeniería de Aplicaciones | [Frontend Developer](../../../engineering/engineering-frontend-developer.md), [VoltAgent Fullstack Developer](../../../application-development/application-development-voltagent-fullstack-developer.md) | Onlook como editor visual, cuando exista una instancia compatible |
+| Inteligencia de Datos y BI | [Dashboard Engineer](../../../data-intelligence/data-intelligence-dashboard-engineer.md) + [VoltAgent Data Analyst](../../../data-intelligence/data-intelligence-voltagent-data-analyst.md) | Streamlit, Metabase y Superset, según infraestructura y datos |
+| Calidad y Validación Digital | [Accessibility Auditor](../../../testing/testing-accessibility-auditor.md), [VoltAgent Accessibility Tester](../../../digital-quality/digital-quality-voltagent-accessibility-tester.md) | PyModel únicamente para comprobaciones estáticas complementarias |
 
-| Herramienta (origen) | Qué se integra | Agente operador en Agency Agents | Requisito / licencia |
-| --- | --- | --- | --- |
-| [PyModel designer-skill](https://github.com/PyModel/designer-skill) | Skill de diseño + MCP local; preflight, referencias y controles estáticos | [Community PyModel Tool Operator](../../../design/design-community-pymodel-tool-operator.md) | Node.js 22+; núcleo sin API key; MIT |
-| [Superdesign skill](https://github.com/superdesigndev/superdesign-skill) | Skill + CLI y servicio de diseño con drafts | [Community Superdesign Tool Operator](../../../design/design-community-superdesign-tool-operator.md) | Node/npm, cuenta y login; cuotas del servicio por verificar; skill MIT |
-| [Onlook](https://github.com/onlook-dev/onlook) | Editor visual de código; colaboración opcional por interfaz manual | [Community Onlook Tool Operator](../../../design/design-community-onlook-tool-operator.md) | Editor OSS Apache-2.0; producto alojado nuevo en acceso anticipado; autohospedaje puede requerir claves/servicios |
-| [Streamlit](https://github.com/streamlit/streamlit) | Framework Python para apps y dashboards | [Community Streamlit Tool Operator](../../../engineering/engineering-community-streamlit-tool-operator.md) | Python, venv; Apache-2.0; software local gratuito |
-| [Apache Superset](https://github.com/apache/superset) | BI SQL y dashboards en instancia autorizada | [Community Apache Superset Tool Operator](../../../engineering/engineering-community-superset-tool-operator.md) | Apache-2.0; Docker/Linux para laboratorio; sin soporte oficial nativo Windows |
-| [Metabase](https://github.com/metabase/metabase) | BI y dashboards sobre bases conectadas | [Community Metabase Tool Operator](../../../engineering/engineering-community-metabase-tool-operator.md) | OSS AGPL autohospedado; componentes comerciales bajo licencia separada |
+**Regla de activación:** comprobar en el host que la herramienta está instalada, conectada, autorizada y disponible antes de invocarla. Si no existe, continuar con trabajo local o indicar `NOT_CONNECTED`; no crear un agente intermediario para fingir integración.
 
-La **versión distribuida del programa, la skill y el MCP original permanecen en sus repositorios de origen**. Estos adaptadores no copian código fuente ni hacen pasar servicios externos por agentes propios.
+## Uso en Agency Agents
 
-## Cómo aparecen en Agency Agents
-
-La aplicación nativa selecciona un catálogo local. Primero, desde un clon local del fork actualizado, `git pull`; después, en Agency Agents abrí **Configuración → Catálogo → Usa tu propio clon → Elija carpeta…** y elegí esa carpeta. Refrescá el catálogo y buscá `Community`. Instalá los operadores que necesites en Codex desde la interfaz.
-
-Alternativamente, desde **Git Bash** dentro de tu fork:
+Los agentes se encuentran en las cuatro divisiones funcionales nuevas y en las divisiones generales ya existentes; los programas externos **no aparecen por separado como agentes**. Elegir un especialista en Agency Agents/Codex no instala el programa que pueda utilizar.
 
 ```bash
+# Desde la carpeta local del fork actualizado y en Git Bash
 bash scripts/convert.sh --tool codex
 bash scripts/install.sh --tool codex --list agents
-bash scripts/install.sh --tool codex --agent community-pymodel-tool-operator,community-superdesign-tool-operator,community-onlook-tool-operator,community-streamlit-tool-operator,community-apache-superset-tool-operator,community-metabase-tool-operator --dry-run
+bash scripts/install.sh --tool codex --agent dashboard-engineer,voltagent-fullstack-developer,voltagent-ui-designer --dry-run
 ```
 
-Si el listado y la previsualización son correctos, **y el usuario autoriza instalar los perfiles**, quitar `--dry-run`. Eso instala **instrucciones de agentes**, no los programas externos.
+En Agency Agents seleccioná la carpeta local de tu fork en **Configuración → Catálogo → Usa tu propio clon → Elija carpeta…**. Si habías instalado los operadores ficticios anteriormente, quitá esas instalaciones obsoletas: que desaparezcan del repositorio **no asegura** que el cliente haya limpiado sus archivos locales.
 
 ## Cómo activar realmente las herramientas (Windows + Codex)
 
@@ -72,7 +65,7 @@ Fuente: [instalación de Superdesign](https://github.com/superdesigndev/superdes
 
 La plataforma **nueva** alojada figura como acceso anticipado con lista de espera. El repositorio GitHub corresponde al editor visual OSS, especialmente enfocado en **Next.js y Tailwind**. Para correrlo localmente, [la guía oficial](https://docs.onlook.com/self-hosting/docker-compose) exige un entorno significativo (Docker, Bun, Node, dependencias de base y variables de entorno). Algunas capacidades de IA requieren credenciales de OpenRouter, CodeSandbox u otros servicios.
 
-**No automatizamos su instalación ni lo tratamos como una integración MCP de Codex comprobada.** El operador sirve para planificar y auditar el intercambio de código con el editor cuando exista una instancia accesible y autorización explícita. No crear cuentas, gastar tokens ni usar datos sensibles por defecto.
+**No automatizamos su instalación ni lo tratamos como una integración MCP de Codex comprobada.** Frontend Developer sirve para planificar y auditar el intercambio de código con el editor cuando exista una instancia accesible y autorización explícita. No crear cuentas, gastar tokens ni usar datos sensibles por defecto.
 
 ### 4. Streamlit (ruta FREE-FIRST para dashboards Python)
 
@@ -84,13 +77,13 @@ py -m venv .venv
 .\.venv\Scripts\python.exe -m streamlit hello
 ```
 
-No se activa ningún `.ps1`: el intérprete se ejecuta directamente, lo que evita problemas frecuentes de `ExecutionPolicy`. El operador puede producir un `app.py` y un `requirements.txt` auditables. **Community Cloud es opcional** y no debe utilizarse para datos internos/sensibles sin aprobación. Fuente: [Streamlit](https://github.com/streamlit/streamlit).
+No se activa ningún `.ps1`: el intérprete se ejecuta directamente, lo que evita problemas frecuentes de `ExecutionPolicy`. Dashboard Engineer puede producir un `app.py` y un `requirements.txt` auditables. **Community Cloud es opcional** y no debe utilizarse para datos internos/sensibles sin aprobación. Fuente: [Streamlit](https://github.com/streamlit/streamlit).
 
 ### 5. Apache Superset (BI más pesado)
 
 Superset ofrece plataforma SQL, API y dashboards; se instala sobre una infraestructura autorizada. [La guía oficial de Docker Compose](https://superset.apache.org/docs/installation/docker-compose/) indica que el método rápido es para desarrollo, **no producción**; tampoco existe soporte oficial de instalación nativa Windows. Para pruebas desde Windows, evaluar WSL2/Linux y Docker, recursos y configuración antes de proceder. No exponer contraseñas de ejemplo, bases sensibles o puertos públicos.
 
-Cuando haya una instancia corriendo, el operador podrá preparar contratos de datasets, gráficos y filtros; sólo **ejecutar** cambios si hay un método de acceso auténticamente conectado.
+Cuando haya una instancia corriendo, Dashboard Engineer podrá preparar contratos de datasets, gráficos y filtros; sólo **ejecutar** cambios si hay un método de acceso auténticamente conectado.
 
 ### 6. Metabase (BI sencillo autohospedado)
 
@@ -98,19 +91,14 @@ La edición abierta es **AGPL**, gratuita para autohospedar; las ediciones comer
 
 Antes de automatizar operaciones por [la API de Metabase](https://www.metabase.com/docs/latest/api), verificar versión, endpoint y credenciales autorizadas. Para aplicaciones cerradas con dashboards incrustados, revisar las obligaciones AGPL/licencia de embedding antes de prometer integración sin costo.
 
-## Criterio de selección automático, con validación humana
 
-- **Diseñar/revisar interfaz:** UI Designer → PyModel (MCP real si conectado) → revisión renderizada independiente.
-- **Crear propuestas visuales o variaciones:** UI Designer → Superdesign (si hay login, créditos y permiso) → Frontend Developer.
-- **Editar visualmente código web existente:** Onlook sólo si hay editor operativo y acceso autorizado; fallback Frontend Developer.
-- **Dashboard ligero y Python:** Data Analyst → Community Dashboard Engineer → Streamlit → revisión funcional y visual.
-- **Dashboard para usuarios de bases SQL con baja fricción de consulta:** Metabase OSS cuando ya existe infraestructura adecuada.
-- **BI de mayor escala y opciones complejas de modelado/visualización:** Apache Superset si la infraestructura, permisos y operación lo justifican.
+## Política de selección y validación
 
-No confundir el [registro de herramientas de desarrollo soportadas por la aplicación](../../../tools.json) con este `registry.json`: el primero enumera **hosts de agentes** como Codex; el segundo enumera **herramientas externas que esos agentes podrían usar**. Modificar `tools.json` para añadir Streamlit o Onlook como si fueran otro Codex sería técnicamente incorrecto.
+- **Auditoría/diseño UI:** UI Designer → PyModel cuando existe su MCP local → verificación visual real y accesibilidad por un especialista distinto.
+- **Bocetos e iteraciones estéticas:** UI Designer → Superdesign sólo con credenciales/créditos permitidos → Frontend Developer implementa sobre el código editable.
+- **Edición visual de código:** Frontend Developer / Fullstack Developer → Onlook sólo con una instancia accesible y compatibilidad de proyecto, manteniendo un diff controlado.
+- **Dashboard Python pequeño:** Data Analyst (métricas y fuentes) → Dashboard Engineer (Streamlit) → Data Visualization Engineer / QA.
+- **BI autoservicio ya autohospedado:** Dashboard Engineer (Metabase OSS), verificando obligaciones AGPL y permisos.
+- **BI complejo ya operado en infraestructura Linux/containers:** Dashboard Engineer (Superset), con pruebas de seguridad, acceso y rendimiento.
 
-## Política de control y pruebas
-
-Un adaptador siempre declara uno de estos estados: `READY` cuando la conexión y la autorización están observadas; `NOT_CONNECTED` cuando falta configuración o ejecución; `BLOCKED` por acceso, costo, credenciales o privacidad. Solo se afirma instalación tras verificar la máquina cliente. No se hacen compras, despliegues, migraciones de datos, suscripciones ni credenciales en GitHub.
-
-La salida de una tarea debe preservar editable el resultado, describir el papel de cada agente/herramienta y dejar registro de métricas y pruebas realmente ejecutadas, sin convertir un análisis o mockup en un producto que se afirme desplegado.
+No equiparar GitHub con un programa instalado ni con un servidor MCP disponible. El registro es documentación de capacidades, no una conexión automática. La elección final depende del encargo y del consentimiento del responsable humano. Todas las herramientas externas conservan su licencia y sus condiciones independientes.
